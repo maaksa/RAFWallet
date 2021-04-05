@@ -1,0 +1,37 @@
+package rs.raf.projekat1.milos_maksimovic_rn4318.view.activities;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+
+import rs.raf.projekat1.milos_maksimovic_rn4318.R;
+
+public class SplashActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        checkIfUserLogin();
+    }
+
+    private void checkIfUserLogin() {
+        Intent intent;
+
+        SharedPreferences sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+        String isUserLogin = sharedPreferences.getString(LoginActivity.LOGIN_USERNAME_KEY, null);
+
+        if (isUserLogin == null) {
+            intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
+}
