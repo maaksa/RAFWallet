@@ -2,12 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UNOS FRAGMENT" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:text="Unos novog prihoda ili rashoda"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="33dp" />
+
+    <EditText
+        android:id="@+id/naslovUnosFragmentEt"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="33dp"
+        android:hint="Naslov" />
+
+    <EditText
+        android:id="@+id/kolicinaUnosFragmentEt"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="33dp"
+        android:hint="Kolicina"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/dodajFragmentUnosBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="350dp"
+        android:text="Dodaj u listu" />
 
 </LinearLayout>
