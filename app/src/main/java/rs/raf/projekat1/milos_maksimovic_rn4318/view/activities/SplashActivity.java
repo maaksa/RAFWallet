@@ -21,17 +21,15 @@ public class SplashActivity extends AppCompatActivity {
         Intent intent;
 
         SharedPreferences sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
-        String isUserLogin = sharedPreferences.getString(LoginActivity.LOGIN_USERNAME_KEY, null);
+        String isUserLogin = sharedPreferences.getString(LoginActivity.USERNAME, null);
 
         if (isUserLogin == null) {
             intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-            finish();
         } else {
             intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
         }
+        startActivity(intent);
+        finish();
     }
 
 }

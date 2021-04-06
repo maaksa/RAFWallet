@@ -38,7 +38,9 @@
         app:layout_constraintBottom_toTopOf="@id/surnameEtLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleLogin" />
+        app:layout_constraintTop_toBottomOf="@id/titleLogin"
+        android:singleLine="true"
+        android:nextFocusDown="@id/surnameEtLogin"/>
 
     <TextView
         android:id="@+id/nameError"
@@ -61,7 +63,9 @@
         app:layout_constraintBottom_toTopOf="@id/bankNameEtLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nameEtLogin" />
+        app:layout_constraintTop_toBottomOf="@id/nameEtLogin"
+        android:singleLine="true"
+        android:nextFocusDown="@id/bankNameEtLogin"/>
 
     <TextView
         android:id="@+id/surnameError"
@@ -84,7 +88,9 @@
         app:layout_constraintBottom_toTopOf="@id/passwordEtLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/surnameEtLogin" />
+        app:layout_constraintTop_toBottomOf="@id/surnameEtLogin"
+        android:singleLine="true"
+        android:nextFocusDown="@id/passwordEtLogin"/>
 
     <TextView
         android:id="@+id/bankNameError"
@@ -104,10 +110,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Unesite sifru"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@id/loginBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bankNameEtLogin" />
+        app:layout_constraintTop_toBottomOf="@id/bankNameEtLogin"
+        android:singleLine="true"
+        android:nextFocusDown="@id/loginBtn"/>
 
     <TextView
         android:id="@+id/passwordError"

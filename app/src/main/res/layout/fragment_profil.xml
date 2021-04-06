@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/podaciKorisnikTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Podaci o korisniku"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/podaciKorisnikMoney"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_baseline_attach_money_black24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/podaciKorisnikTv" />
+
+    <TextView
+        android:id="@+id/imeTv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="36sp"
+        android:text="Ime:"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/podaciKorisnikMoney" />
+
+    <TextView
+        android:id="@+id/prezimeTv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="36sp"
+        android:text="Prezime:"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imeTv" />
+
+    <TextView
+        android:id="@+id/bankaTv"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="36sp"
+        android:text="Banka:"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/prezimeTv" />
+
+    <TextView
+        android:id="@+id/bankaProfilFragmentTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="36sp"
+        android:layout_marginEnd="200dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bankaTv"
+        app:layout_constraintTop_toBottomOf="@id/prezimeProfilFragmentTv" />
+
+    <TextView
+        android:id="@+id/imeProfilFragmentTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="36sp"
+        android:layout_marginEnd="200dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imeTv"
+        app:layout_constraintTop_toBottomOf="@id/podaciKorisnikMoney" />
+
+
+    <TextView
+        android:id="@+id/prezimeProfilFragmentTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="36sp"
+        android:layout_marginEnd="200dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/prezimeTv"
+        app:layout_constraintTop_toBottomOf="@id/imeProfilFragmentTv" />
+
+    <Button
+        android:id="@+id/izmeniBtnProfilFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/odjaviBtnProfilFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Izmeni"/>
+
+    <Button
+        android:id="@+id/odjaviBtnProfilFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/izmeniBtnProfilFragment"
+        android:text="Odjava"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,11 @@ import rs.raf.projekat1.milos_maksimovic_rn4318.R;
 public class LoginActivity extends AppCompatActivity {
 
     public static final String LOGIN_USERNAME_KEY = "isUserLogin";
-    private static final String PASSWORD = "mojasifra";
+    public static final String USERNAME = "username";
+    public static final String SURNAME = "surname";
+    public static final String BANK_NAME = "bankName";
+
+    private static final String PASSWORD = "123";
 
     private EditText usernameEt;
     private EditText surnameEt;
@@ -182,7 +186,9 @@ public class LoginActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
                 sharedPreferences
                         .edit()
-                        .putString(LOGIN_USERNAME_KEY, username)
+                        .putString(USERNAME, username)
+                        .putString(SURNAME, surname)
+                        .putString(BANK_NAME, bankName)
                         .apply();
 
                 Intent intent = new Intent(this, MainActivity.class);
