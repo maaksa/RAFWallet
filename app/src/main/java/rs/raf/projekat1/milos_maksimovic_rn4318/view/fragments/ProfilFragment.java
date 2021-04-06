@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import org.w3c.dom.Text;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
+import rs.raf.projekat1.milos_maksimovic_rn4318.view.activities.IzmenaProfilActivity;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.activities.LoginActivity;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.activities.MainActivity;
 
@@ -76,7 +77,8 @@ public class ProfilFragment extends Fragment {
         });
 
         izmeniBtn.setOnClickListener(v -> {
-            
+            Intent intent = new Intent(getActivity(), IzmenaProfilActivity.class);
+            startActivity(intent);
         });
     }
 

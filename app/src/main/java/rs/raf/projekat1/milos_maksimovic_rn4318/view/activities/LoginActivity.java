@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final String SURNAME = "surname";
     public static final String BANK_NAME = "bankName";
 
-    private static final String PASSWORD = "123";
+    private static final String PASSWORD = "12345";
 
     private EditText usernameEt;
     private EditText surnameEt;

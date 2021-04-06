@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
         android:layout_marginTop="36sp"
-        android:layout_marginEnd="200dp"
+        android:layout_marginEnd="170dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/prezimeTv"
