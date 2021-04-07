@@ -15,21 +15,29 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.concurrent.TimeoutException;
+import java.util.function.Function;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
 
 public class PrihodAdapter extends ListAdapter<Prihod, PrihodAdapter.ViewHolder> {
 
-    public PrihodAdapter(@NonNull DiffUtil.ItemCallback<Prihod> diffCallback) {
+    private final Function<Prihod, Void> onPrihodClicked;
+
+    public PrihodAdapter(@NonNull DiffUtil.ItemCallback<Prihod> diffCallback, Function<Prihod, Void> onPrihodClicked) {
         super(diffCallback);
+        this.onPrihodClicked = onPrihodClicked;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.prihod_rashod_list_item, parent, false);
-        return new ViewHolder(view, parent.getContext());
+        return new ViewHolder(view, parent.getContext(), position -> {
+            Prihod prihod = getItem(position);
+            onPrihodClicked.apply(prihod);
+            return null;
+        });
     }
 
     @Override
@@ -42,9 +50,16 @@ public class PrihodAdapter extends ListAdapter<Prihod, PrihodAdapter.ViewHolder>
 
         private Context context;
 
-        public ViewHolder(@NonNull View itemView, Context context) {
+        public ViewHolder(@NonNull View itemView, Context context, Function<Integer, Void> onItemClicked) {
             super(itemView);
             this.context = context;
+
+            ImageView deleteIv = itemView.findViewById(R.id.deleteIvListItem);
+            deleteIv.setOnClickListener(v -> {
+                if (getAdapterPosition() != RecyclerView.NO_POSITION) {
+                    onItemClicked.apply(getAdapterPosition());
+                }
+            });
         }
 
         public void bind(Prihod prihod) {

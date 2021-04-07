@@ -52,7 +52,10 @@ public class RashodFragment extends Fragment {
     }
 
     private void initRecycler() {
-        rashodAdapter = new RashodAdapter(new RashodDiffItemCallback());
+        rashodAdapter = new RashodAdapter(new RashodDiffItemCallback(), rashod -> {
+            rashodViewModel.deleteRashod(rashod);
+            return null;
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(rashodAdapter);
     }

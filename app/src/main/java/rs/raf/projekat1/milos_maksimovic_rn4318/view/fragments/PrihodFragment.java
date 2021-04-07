@@ -49,7 +49,10 @@ public class PrihodFragment extends Fragment {
     }
 
     private void initRecycler() {
-        prihodAdapter = new PrihodAdapter(new PrihodDiffItemCallback());
+        prihodAdapter = new PrihodAdapter(new PrihodDiffItemCallback(), prihod -> {
+            prihodViewModel.deletePrihod(prihod);
+            return null;
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(prihodAdapter);
     }
