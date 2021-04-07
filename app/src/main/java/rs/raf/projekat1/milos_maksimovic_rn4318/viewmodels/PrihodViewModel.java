@@ -6,12 +6,14 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
+import rs.raf.projekat1.milos_maksimovic_rn4318.models.Rashod;
 
 public class PrihodViewModel extends ViewModel {
 
-    public static int counter = 4;
+    public static int counter = 11;
 
     private final MutableLiveData<List<Prihod>> prihodi = new MutableLiveData<>();
     private final ArrayList<Prihod> prihodiList = new ArrayList<>();
@@ -23,13 +25,12 @@ public class PrihodViewModel extends ViewModel {
     }
 
     private void createDummyData() {
-        Prihod prihod1 = new Prihod(1, "IT firam", 10000);
-        Prihod prihod2 = new Prihod(2, "Poljoprivreda", 3500);
-        Prihod prihod3 = new Prihod(3, "Nekretnine", 2800);
-
-        prihodiList.add(prihod1);
-        prihodiList.add(prihod2);
-        prihodiList.add(prihod3);
+        Random random = new Random();
+        for (int i = 0; i <= 10; i++) {
+            int kolicina = random.nextInt((10 - 1) + 1) + 1;
+            Prihod p = new Prihod(i, "IT Firma " + i, kolicina * 100);
+            prihodiList.add(p);
+        }
     }
 
     public LiveData<List<Prihod>> getPrihodi() {
@@ -39,6 +40,12 @@ public class PrihodViewModel extends ViewModel {
     public void addPrihod(String naslov, int kolicina) {
         Prihod prihod = new Prihod(counter++, naslov, kolicina);
         prihodiList.add(prihod);
+        ArrayList<Prihod> listToSubmit = new ArrayList<>(prihodiList);
+        prihodi.setValue(listToSubmit);
+    }
+
+    public void deletePrihod(Prihod prihod) {
+        prihodiList.remove(prihod);
         ArrayList<Prihod> listToSubmit = new ArrayList<>(prihodiList);
         prihodi.setValue(listToSubmit);
     }
