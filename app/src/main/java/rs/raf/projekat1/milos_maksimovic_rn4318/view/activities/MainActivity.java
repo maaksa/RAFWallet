@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private void initViewPager() {
         viewPager = findViewById(R.id.customViewPager);
         viewPager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
+        viewPager.setOffscreenPageLimit(3);
     }
 
     private void initNavigation() {

@@ -13,7 +13,7 @@ import rs.raf.projekat1.milos_maksimovic_rn4318.models.Rashod;
 
 public class RashodViewModel extends ViewModel {
 
-    public static int counter = 11;
+    public static int counter = 6;
 
     private final MutableLiveData<List<Rashod>> rashodi = new MutableLiveData<>();
     private final ArrayList<Rashod> rashodiList = new ArrayList<>();
@@ -26,7 +26,7 @@ public class RashodViewModel extends ViewModel {
 
     private void createDummyData() {
         Random random = new Random();
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 5; i++) {
             int kolicina = random.nextInt((10 - 1) + 1) + 1;
             Rashod r = new Rashod(i, "IT Oprema " + i, kolicina * 100);
             rashodiList.add(r);
