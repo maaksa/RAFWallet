@@ -7,6 +7,7 @@ import android.icu.text.UnicodeSetSpanner;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
@@ -21,8 +22,13 @@ public class IzmenaFinansijeActivity extends AppCompatActivity {
 
     private Prihod prihod;
     private Rashod rashod;
+
     private EditText naslovEt;
     private EditText kolicinaEt;
+    private EditText opisEt;
+
+    private ImageView audioIv;
+
     private Button odustaniBtn;
     private Button izmeniBtn;
 
@@ -43,6 +49,8 @@ public class IzmenaFinansijeActivity extends AppCompatActivity {
         odustaniBtn = findViewById(R.id.odustaniBtnIzmaneFinansijeActivity);
         naslovEt = findViewById(R.id.naslovEdIzmenaFinansijaActivity);
         kolicinaEt = findViewById(R.id.kolicinaEdIzmenaFinansijaActivity);
+        audioIv = findViewById(R.id.audioIvIzmeniFinanseijActivity);
+        opisEt = findViewById(R.id.opisIzmeniFinansijeActivity);
 
         Intent intent = getIntent();
         if (intent.getExtras() != null) {
@@ -50,10 +58,12 @@ public class IzmenaFinansijeActivity extends AppCompatActivity {
             if (prihod != null) {
                 naslovEt.setText(prihod.getNaslov());
                 kolicinaEt.setText(Integer.toString(prihod.getKolicina()));
+                opisEt.setText(prihod.getOpis());
             } else {
                 this.rashod = (Rashod) intent.getExtras().get(FINANSIJA_RASHOD_KEY);
                 naslovEt.setText(rashod.getNaslov());
                 kolicinaEt.setText(Integer.toString(rashod.getKolicina()));
+                opisEt.setText(rashod.getOpis());
             }
         }
     }

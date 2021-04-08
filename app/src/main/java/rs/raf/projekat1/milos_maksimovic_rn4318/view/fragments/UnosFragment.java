@@ -5,7 +5,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -27,6 +29,9 @@ public class UnosFragment extends Fragment {
     private EditText naslovEt;
     private EditText kolicinaEt;
     private Button dodajBtn;
+    private ImageView audioIv;
+    private EditText opisEt;
+    private CheckBox checkBoxAudio;
 
     private PrihodViewModel prihodViewModel;
     private RashodViewModel rashodViewModel;
@@ -83,23 +88,39 @@ public class UnosFragment extends Fragment {
         naslovEt = view.findViewById(R.id.naslovUnosFragmentEt);
         kolicinaEt = view.findViewById(R.id.kolicinaUnosFragmentEt);
         dodajBtn = view.findViewById(R.id.dodajFragmentUnosBtn);
+        audioIv = view.findViewById(R.id.audioUnostFragmentIv);
+        opisEt = view.findViewById(R.id.opisEtUnosFragment);
+        checkBoxAudio = view.findViewById(R.id.checkboxAudioUnosFragment);
     }
 
     private void initListeners() {
+        checkBoxAudio.setOnClickListener(v -> {
+            boolean isAudioChecked = checkBoxAudio.isChecked();
+            if (isAudioChecked) {
+                audioIv.setVisibility(View.VISIBLE);
+                opisEt.setVisibility(View.GONE);
+            } else {
+                audioIv.setVisibility(View.GONE);
+                opisEt.setVisibility(View.VISIBLE);
+            }
+        });
         dodajBtn.setOnClickListener(v -> {
             String option = (String) spinner.getSelectedItem();
             String naslov = naslovEt.getText().toString();
-            if (naslov.isEmpty() || kolicinaEt.getText().toString().isEmpty()) {
+            String opis = opisEt.getText().toString();
+
+            if (naslov.isEmpty() || kolicinaEt.getText().toString().isEmpty() || opis.isEmpty()) {
                 Toast.makeText(getActivity(), "Sva polja morate popuniti", Toast.LENGTH_SHORT).show();
             } else {
                 int kolicina = Integer.parseInt(kolicinaEt.getText().toString());
                 if (option.equals("Prihod")) {
-                    prihodViewModel.addPrihod(naslov, kolicina);
+                    prihodViewModel.addPrihod(naslov, kolicina, opis);
                 } else {
-                    rashodViewModel.addRashod(naslov, kolicina);
+                    rashodViewModel.addRashod(naslov, kolicina, opis);
                 }
                 kolicinaEt.setText("");
                 naslovEt.setText("");
+                opisEt.setText("");
             }
 
         });

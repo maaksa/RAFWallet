@@ -28,7 +28,7 @@ public class RashodViewModel extends ViewModel {
         Random random = new Random();
         for (int i = 0; i <= 3; i++) {
             int kolicina = random.nextInt((10 - 1) + 1) + 1;
-            Rashod r = new Rashod(i, "IT Oprema " + i, kolicina * 100);
+            Rashod r = new Rashod(i, "IT Oprema " + i, kolicina * 100, "Opis " + i);
             rashodiList.add(r);
         }
     }
@@ -37,8 +37,8 @@ public class RashodViewModel extends ViewModel {
         return rashodi;
     }
 
-    public void addRashod(String naslov, int kolicina) {
-        Rashod rashod = new Rashod(counter++, naslov, kolicina);
+    public void addRashod(String naslov, int kolicina, String opis) {
+        Rashod rashod = new Rashod(counter++, naslov, kolicina, opis);
         rashodiList.add(rashod);
         ArrayList<Rashod> listToSubmit = new ArrayList<>(rashodiList);
         rashodi.setValue(listToSubmit);

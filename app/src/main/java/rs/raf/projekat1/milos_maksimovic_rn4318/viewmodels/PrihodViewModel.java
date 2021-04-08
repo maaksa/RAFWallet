@@ -28,7 +28,7 @@ public class PrihodViewModel extends ViewModel {
         Random random = new Random();
         for (int i = 0; i <= 3; i++) {
             int kolicina = random.nextInt((10 - 1) + 1) + 1;
-            Prihod p = new Prihod(i, "IT Firma " + i, kolicina * 100);
+            Prihod p = new Prihod(i, "IT Firma " + i, kolicina * 100, "Opis " + i);
             prihodiList.add(p);
         }
     }
@@ -37,8 +37,8 @@ public class PrihodViewModel extends ViewModel {
         return prihodi;
     }
 
-    public void addPrihod(String naslov, int kolicina) {
-        Prihod prihod = new Prihod(counter++, naslov, kolicina);
+    public void addPrihod(String naslov, int kolicina, String opis) {
+        Prihod prihod = new Prihod(counter++, naslov, kolicina, opis);
         prihodiList.add(prihod);
         ArrayList<Prihod> listToSubmit = new ArrayList<>(prihodiList);
         prihodi.setValue(listToSubmit);

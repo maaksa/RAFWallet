@@ -7,11 +7,21 @@ public class Rashod implements Serializable {
     private int id;
     private String naslov;
     private int kolicina;
+    private String opis;
 
-    public Rashod(int id, String naslov, int kolicina) {
+    public String getOpis() {
+        return opis;
+    }
+
+    public void setOpis(String opis) {
+        this.opis = opis;
+    }
+
+    public Rashod(int id, String naslov, int kolicina, String opis) {
         this.id = id;
         this.naslov = naslov;
         this.kolicina = kolicina;
+        this.opis = opis;
     }
 
     public int getId() {

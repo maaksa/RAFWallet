@@ -7,6 +7,22 @@ public class Prihod implements Serializable {
     private int id;
     private String naslov;
     private int kolicina;
+    private String opis;
+
+    public Prihod(int id, String naslov, int kolicina, String opis) {
+        this.id = id;
+        this.naslov = naslov;
+        this.kolicina = kolicina;
+        this.opis = opis;
+    }
+
+    public String getOpis() {
+        return opis;
+    }
+
+    public void setOpis(String opis) {
+        this.opis = opis;
+    }
 
     public int getId() {
         return id;
@@ -29,12 +45,6 @@ public class Prihod implements Serializable {
     }
 
     public void setKolicina(int kolicina) {
-        this.kolicina = kolicina;
-    }
-
-    public Prihod(int id, String naslov, int kolicina) {
-        this.id = id;
-        this.naslov = naslov;
         this.kolicina = kolicina;
     }
 

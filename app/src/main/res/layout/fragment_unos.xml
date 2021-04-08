@@ -46,7 +46,7 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/edit_text"
+        android:id="@+id/opisEtUnosFragment"
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_marginLeft="50dp"
@@ -59,6 +59,7 @@
         android:visibility="visible" />
 
     <ImageView
+        android:id="@+id/audioUnostFragmentIv"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginLeft="150dp"
