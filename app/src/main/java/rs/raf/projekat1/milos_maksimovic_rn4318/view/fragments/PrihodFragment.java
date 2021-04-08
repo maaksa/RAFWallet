@@ -1,5 +1,6 @@
 package rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
+import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
+import rs.raf.projekat1.milos_maksimovic_rn4318.view.activities.IzmenaFinansijeActivity;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.adapter.PrihodAdapter;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.differ.PrihodDiffItemCallback;
 import rs.raf.projekat1.milos_maksimovic_rn4318.viewmodels.PrihodViewModel;
@@ -20,6 +23,7 @@ public class PrihodFragment extends Fragment {
     private PrihodViewModel prihodViewModel;
     private PrihodAdapter prihodAdapter;
     private RecyclerView recyclerView;
+    private Prihod prihodToSend;
 
     public PrihodFragment() {
         super(R.layout.fragment_prihodi);
@@ -50,7 +54,19 @@ public class PrihodFragment extends Fragment {
 
     private void initRecycler() {
         prihodAdapter = new PrihodAdapter(new PrihodDiffItemCallback(), prihod -> {
-            prihodViewModel.deletePrihod(prihod);
+            prihodToSend = prihod;
+            return null;
+        }, action -> {
+            switch (action) {
+                case EDIT:
+                    Intent intent = new Intent(getActivity(), IzmenaFinansijeActivity.class);
+                    intent.putExtra(IzmenaFinansijeActivity.FINANSIJA_PRIHOD_KEY, prihodToSend);
+                    startActivity(intent);
+                    break;
+                case DELETE:
+                    prihodViewModel.deletePrihod(prihodToSend);
+                    break;
+            }
             return null;
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

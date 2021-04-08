@@ -1,6 +1,8 @@
 package rs.raf.projekat1.milos_maksimovic_rn4318.models;
 
-public class Prihod {
+import java.io.Serializable;
+
+public class Prihod implements Serializable {
 
     private int id;
     private String naslov;

@@ -1,5 +1,6 @@
 package rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,6 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
+import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
+import rs.raf.projekat1.milos_maksimovic_rn4318.models.Rashod;
+import rs.raf.projekat1.milos_maksimovic_rn4318.view.activities.IzmenaFinansijeActivity;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.adapter.PrihodAdapter;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.adapter.RashodAdapter;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.differ.PrihodDiffItemCallback;
@@ -23,6 +27,7 @@ public class RashodFragment extends Fragment {
     private RashodViewModel rashodViewModel;
     private RashodAdapter rashodAdapter;
     private RecyclerView recyclerView;
+    private Rashod rashodToSend;
 
     public RashodFragment() {
         super(R.layout.fragment_rashodi);
@@ -53,7 +58,19 @@ public class RashodFragment extends Fragment {
 
     private void initRecycler() {
         rashodAdapter = new RashodAdapter(new RashodDiffItemCallback(), rashod -> {
-            rashodViewModel.deleteRashod(rashod);
+            rashodToSend = rashod;
+            return null;
+        }, action -> {
+            switch (action) {
+                case EDIT:
+                    Intent intent = new Intent(getActivity(), IzmenaFinansijeActivity.class);
+                    intent.putExtra(IzmenaFinansijeActivity.FINANSIJA_RASHOD_KEY, rashodToSend);
+                    startActivity(intent);
+                    break;
+                case DELETE:
+                    rashodViewModel.deleteRashod(rashodToSend);
+                    break;
+            }
             return null;
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

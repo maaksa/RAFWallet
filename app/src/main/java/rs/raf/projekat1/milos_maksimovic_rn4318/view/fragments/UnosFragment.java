@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -88,11 +89,17 @@ public class UnosFragment extends Fragment {
         dodajBtn.setOnClickListener(v -> {
             String option = (String) spinner.getSelectedItem();
             String naslov = naslovEt.getText().toString();
-            int kolicina = Integer.parseInt(kolicinaEt.getText().toString());
-            if (option.equals("Prihod")) {
-                prihodViewModel.addPrihod(naslov, kolicina);
+            if (naslov.isEmpty() || kolicinaEt.getText().toString().isEmpty()) {
+                Toast.makeText(getActivity(), "Sva polja morate popuniti", Toast.LENGTH_SHORT).show();
             } else {
-                rashodViewModel.addRashod(naslov, kolicina);
+                int kolicina = Integer.parseInt(kolicinaEt.getText().toString());
+                if (option.equals("Prihod")) {
+                    prihodViewModel.addPrihod(naslov, kolicina);
+                } else {
+                    rashodViewModel.addRashod(naslov, kolicina);
+                }
+                kolicinaEt.setText("");
+                naslovEt.setText("");
             }
 
         });

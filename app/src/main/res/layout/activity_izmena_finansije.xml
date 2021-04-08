@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:text="Izmena finansije"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_baseline_attach_money_black24" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="36sp"
+            android:text="Naslov:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/naslovEdIzmenaFinansijaActivity"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33dp"
+            android:hint="Naslov" />>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="36sp"
+            android:text="Kolicina:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/kolicinaEdIzmenaFinansijaActivity"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36sp"
+            android:layout_marginEnd="200dp"
+            android:hint="100$"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10sp"
+        android:text="Opis:"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_text_border"
+        android:gravity="top"
+        android:hint="Neki opis"
+        android:inputType="text|textMultiLine"
+        android:padding="10dp"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_baseline_mic_24"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/odustaniBtnIzmaneFinansijeActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:layout_marginLeft="60dp"
+            android:text="Odustani" />
+
+        <Button
+            android:id="@+id/izmeniBtnIzmaneFinansijeActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginStart="100dp"
+            android:text="Izmeni" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
