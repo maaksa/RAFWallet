@@ -9,9 +9,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
         android:text="Detalji finansije"
-        android:textSize="20sp"
-        android:gravity="center_horizontal"/>
+        android:textSize="20sp" />
 
     <ImageView
         android:layout_width="150dp"
@@ -34,8 +34,8 @@
             android:text="Naslov:"
             android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/naslovEdIzmenaFinansijaActivity"
+        <TextView
+            android:id="@+id/naslovEdPrikazFinansijaActivity"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="33dp"
@@ -56,8 +56,8 @@
             android:text="Kolicina:"
             android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/kolicinaEdIzmenaFinansijaActivity"
+        <TextView
+            android:id="@+id/kolicinaEdPrikazFinansijaActivity"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="36sp"
@@ -75,8 +75,8 @@
         android:text="Opis:"
         android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/edit_text"
+    <TextView
+        android:id="@+id/opisPrikazFinansijeActivityEt"
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_marginLeft="50dp"
@@ -88,6 +88,7 @@
         android:visibility="visible" />
 
     <ImageView
+        android:id="@+id/playIvPrikazFinansijaActivity"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="center_vertical"

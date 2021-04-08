@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.activities.IzmenaFinansijeActivity;
+import rs.raf.projekat1.milos_maksimovic_rn4318.view.activities.PrikazFinansijeActivity;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.adapter.PrihodAdapter;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.differ.PrihodDiffItemCallback;
 import rs.raf.projekat1.milos_maksimovic_rn4318.viewmodels.PrihodViewModel;
@@ -62,6 +63,11 @@ public class PrihodFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), IzmenaFinansijeActivity.class);
                     intent.putExtra(IzmenaFinansijeActivity.FINANSIJA_PRIHOD_KEY, prihodToSend);
                     startActivity(intent);
+                    break;
+                case SHOW:
+                    Intent intent2 = new Intent(getActivity(), PrikazFinansijeActivity.class);
+                    intent2.putExtra(IzmenaFinansijeActivity.FINANSIJA_PRIHOD_KEY, prihodToSend);
+                    startActivity(intent2);
                     break;
                 case DELETE:
                     prihodViewModel.deletePrihod(prihodToSend);

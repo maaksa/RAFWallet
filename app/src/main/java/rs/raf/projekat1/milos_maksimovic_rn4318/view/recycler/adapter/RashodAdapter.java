@@ -68,6 +68,8 @@ public class RashodAdapter extends ListAdapter<Rashod, RashodAdapter.ViewHolder>
             deleteIv.setOnClickListener(RashodAdapter.ViewHolder.this);
             ImageView editIv = itemView.findViewById(R.id.editIvListItem);
             editIv.setOnClickListener(RashodAdapter.ViewHolder.this);
+            View show = itemView.findViewById(R.id.viewHolderShow);
+            show.setOnClickListener(RashodAdapter.ViewHolder.this);
 
         }
 
@@ -85,6 +87,10 @@ public class RashodAdapter extends ListAdapter<Rashod, RashodAdapter.ViewHolder>
                         onItemClicked.apply(getAdapterPosition());
                         onItemClickedAction.apply(Action.DELETE);
                     }
+                    break;
+                default:
+                    onItemClicked.apply(getAdapterPosition());
+                    onItemClickedAction.apply(Action.SHOW);
                     break;
             }
         }

@@ -15,6 +15,7 @@ import rs.raf.projekat1.milos_maksimovic_rn4318.R;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Rashod;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.activities.IzmenaFinansijeActivity;
+import rs.raf.projekat1.milos_maksimovic_rn4318.view.activities.PrikazFinansijeActivity;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.adapter.PrihodAdapter;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.adapter.RashodAdapter;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.differ.PrihodDiffItemCallback;
@@ -66,6 +67,11 @@ public class RashodFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), IzmenaFinansijeActivity.class);
                     intent.putExtra(IzmenaFinansijeActivity.FINANSIJA_RASHOD_KEY, rashodToSend);
                     startActivity(intent);
+                    break;
+                case SHOW:
+                    Intent intent2 = new Intent(getActivity(), PrikazFinansijeActivity.class);
+                    intent2.putExtra(IzmenaFinansijeActivity.FINANSIJA_RASHOD_KEY, rashodToSend);
+                    startActivity(intent2);
                     break;
                 case DELETE:
                     rashodViewModel.deleteRashod(rashodToSend);

@@ -73,6 +73,8 @@ public class PrihodAdapter extends ListAdapter<Prihod, PrihodAdapter.ViewHolder>
             deleteIv.setOnClickListener(ViewHolder.this);
             ImageView editIv = itemView.findViewById(R.id.editIvListItem);
             editIv.setOnClickListener(ViewHolder.this);
+            View show = itemView.findViewById(R.id.viewHolderShow);
+            show.setOnClickListener(ViewHolder.this);
 
         }
 
@@ -90,6 +92,10 @@ public class PrihodAdapter extends ListAdapter<Prihod, PrihodAdapter.ViewHolder>
                         onItemClicked.apply(getAdapterPosition());
                         onItemClickedAction.apply(Action.DELETE);
                     }
+                    break;
+                default:
+                    onItemClicked.apply(getAdapterPosition());
+                    onItemClickedAction.apply(Action.SHOW);
                     break;
             }
         }
