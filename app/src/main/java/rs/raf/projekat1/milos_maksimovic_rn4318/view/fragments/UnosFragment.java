@@ -137,6 +137,7 @@ public class UnosFragment extends Fragment {
                 audioIv.setVisibility(View.GONE);
                 chronometer.setVisibility(View.VISIBLE);
                 audioRecordingIv.setVisibility(View.VISIBLE);
+                dodajBtn.setVisibility(View.GONE);
 
                 uuid = UUID.randomUUID();
                 fileToSave = new File(perentFolder, uuid + ".3gp");
@@ -155,6 +156,7 @@ public class UnosFragment extends Fragment {
             audioIv.setVisibility(View.VISIBLE);
             chronometer.setVisibility(View.GONE);
             audioRecordingIv.setVisibility(View.GONE);
+            dodajBtn.setVisibility(View.VISIBLE);
 
             mediaRecorder.stop();
             mediaRecorder.release();

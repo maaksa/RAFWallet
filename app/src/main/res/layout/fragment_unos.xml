@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
-        android:text="Unos novog prihoda ili rashoda"
+        android:text="Unos finansije"
         android:textSize="20sp" />
 
     <Spinner
@@ -74,7 +74,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="90dp"
         android:src="@drawable/ic_baseline_mic_24"
         android:visibility="gone" />
 
@@ -83,7 +83,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="90dp"
         android:src="@drawable/ic_baseline_mic_24"
         android:visibility="gone"
         app:tint="@android:color/holo_red_light" />

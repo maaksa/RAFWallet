@@ -1,6 +1,7 @@
 package rs.raf.projekat1.milos_maksimovic_rn4318.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.icu.text.UnicodeSetSpanner;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Rashod;
+import rs.raf.projekat1.milos_maksimovic_rn4318.viewmodels.PrihodViewModel;
+import rs.raf.projekat1.milos_maksimovic_rn4318.viewmodels.RashodViewModel;
 import timber.log.Timber;
 
 public class IzmenaFinansijeActivity extends AppCompatActivity {
@@ -33,10 +36,17 @@ public class IzmenaFinansijeActivity extends AppCompatActivity {
     private Button odustaniBtn;
     private Button izmeniBtn;
 
+    //private PrihodViewModel prihodViewModel;
+    //private RashodViewModel rashodViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_izmena_finansije);
+
+        // prihodViewModel = new ViewModelProvider(this).get(PrihodViewModel.class);
+        //rashodViewModel = new ViewModelProvider(this).get(RashodViewModel.class);
+
         init();
     }
 
@@ -88,7 +98,21 @@ public class IzmenaFinansijeActivity extends AppCompatActivity {
             finish();
         });
         izmeniBtn.setOnClickListener(v -> {
+            if (prihod != null) {
+                String naslov = naslovEt.getText().toString();
+                String opis = opisEt.getText().toString();
+                if (naslov.isEmpty() || opis.isEmpty() || kolicinaEt.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "Popunite sva polja", Toast.LENGTH_SHORT).show();
+                } else {
 
+                    Prihod p = new Prihod(prihod.getId(), naslov, Integer.parseInt(kolicinaEt.getText().toString()), opis, null);
+                    Intent intent = new Intent(this, MainActivity.class);
+                    intent.putExtra(MainActivity.UPDATE_PRIHOD_KEY, p);
+                    startActivity(intent);
+                    //prihodViewModel.updatePrihod(prihod.getId(), naslov, Integer.parseInt(kolicinaEt.getText().toString()), opis);
+                }
+            }
         });
     }
+
 }
