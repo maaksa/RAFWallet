@@ -1,13 +1,16 @@
 package rs.raf.projekat1.milos_maksimovic_rn4318.models;
 
+import java.io.File;
 import java.io.Serializable;
+import java.util.UUID;
 
 public class Rashod implements Serializable {
 
-    private int id;
+    private UUID id;
     private String naslov;
     private int kolicina;
     private String opis;
+    private File audioZapis;
 
     public String getOpis() {
         return opis;
@@ -17,18 +20,27 @@ public class Rashod implements Serializable {
         this.opis = opis;
     }
 
-    public Rashod(int id, String naslov, int kolicina, String opis) {
+    public Rashod(UUID id, String naslov, int kolicina, String opis, File audioZapis) {
         this.id = id;
         this.naslov = naslov;
         this.kolicina = kolicina;
         this.opis = opis;
+        this.audioZapis = audioZapis;
     }
 
-    public int getId() {
+    public File getAudioZapis() {
+        return audioZapis;
+    }
+
+    public void setAudioZapis(File audioZapis) {
+        this.audioZapis = audioZapis;
+    }
+
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

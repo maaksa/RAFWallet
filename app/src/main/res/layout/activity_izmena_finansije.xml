@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -86,14 +87,36 @@
         android:padding="10dp"
         android:visibility="visible" />
 
+
+    <Chronometer
+        android:id="@+id/chronometerIzmenaFinansijeActivity"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:tint="@color/black" />
+
     <ImageView
         android:id="@+id/audioIvIzmeniFinanseijActivity"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/ic_baseline_mic_24"
         android:visibility="gone" />
+
+
+    <ImageView
+        android:id="@+id/audioRecordingIzmeniFinansijeActivityIv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_baseline_mic_24"
+        android:visibility="gone"
+        app:tint="@android:color/holo_red_light" />
 
     <LinearLayout
         android:layout_width="match_parent"

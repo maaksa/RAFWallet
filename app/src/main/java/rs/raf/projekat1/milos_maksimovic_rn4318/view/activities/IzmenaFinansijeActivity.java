@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.icu.text.UnicodeSetSpanner;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -58,12 +59,24 @@ public class IzmenaFinansijeActivity extends AppCompatActivity {
             if (prihod != null) {
                 naslovEt.setText(prihod.getNaslov());
                 kolicinaEt.setText(Integer.toString(prihod.getKolicina()));
-                opisEt.setText(prihod.getOpis());
+                if (prihod.getAudioZapis() != null) {
+                    opisEt.setVisibility(View.GONE);
+                    audioIv.setVisibility(View.VISIBLE);
+                } else {
+                    opisEt.setText(prihod.getOpis());
+                    audioIv.setVisibility(View.GONE);
+                }
             } else {
                 this.rashod = (Rashod) intent.getExtras().get(FINANSIJA_RASHOD_KEY);
                 naslovEt.setText(rashod.getNaslov());
                 kolicinaEt.setText(Integer.toString(rashod.getKolicina()));
-                opisEt.setText(rashod.getOpis());
+                if (rashod.getAudioZapis() != null) {
+                    opisEt.setVisibility(View.GONE);
+                    audioIv.setVisibility(View.VISIBLE);
+                } else {
+                    opisEt.setText(rashod.getOpis());
+                    audioIv.setVisibility(View.GONE);
+                }
             }
         }
     }
