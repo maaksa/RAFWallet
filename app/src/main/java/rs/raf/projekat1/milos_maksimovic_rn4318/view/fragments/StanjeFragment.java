@@ -4,12 +4,15 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+
+import java.util.ArrayList;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
@@ -26,8 +29,14 @@ public class StanjeFragment extends Fragment {
     private TextView rashodTv;
     private TextView razlikaTv;
 
-    private int prihodKol;
-    private int rashodKol;
+    private TextView rashraz;
+    private TextView prihraz;
+
+    public boolean prihodKolBool;
+    public boolean rashodKolBool;
+
+    public int prihodKol;
+    public int rashodKol;
 
     public StanjeFragment() {
         super(R.layout.fragment_stanje);
@@ -50,45 +59,56 @@ public class StanjeFragment extends Fragment {
         prihodTv = view.findViewById(R.id.prihodStanjeFragment);
         rashodTv = view.findViewById(R.id.rashodStanjeFragment);
         razlikaTv = view.findViewById(R.id.razlikaStanjeFragment);
+
+        prihraz = view.findViewById(R.id.prihraz);
+        rashraz = view.findViewById(R.id.rashraz);
     }
 
     private void initObservers() {
-//        prihodTv.setText(Integer.toString(prihodViewModel.getUkupnaKolicina()));
-//        prihodTv.setTextColor(Color.GREEN);
-//        rashodTv.setText(Integer.toString(rashodViewModel.getUkupnaKolicina()));
-//        rashodTv.setTextColor(Color.RED);
+        prihodViewModel.getSum().observe(getViewLifecycleOwner(), prihodSum -> {
+            prihodKolBool = true;
+            prihodKol = prihodSum;
+            if (rashodKolBool) {
+                if (prihodKol - rashodKol < 0) {
+                    razlikaTv.setTextColor(Color.RED);
+                } else {
+                    razlikaTv.setTextColor(Color.GREEN);
+                }
+                razlikaTv.setText(Integer.toString(prihodKol - rashodKol));
+            }
+        });
 
-
-
-        if (prihodViewModel.getUkupnaKolicina() - rashodViewModel.getUkupnaKolicina() < 0) {
-            razlikaTv.setTextColor(Color.RED);
-        } else {
-            razlikaTv.setTextColor(Color.GREEN);
-        }
-
-        razlikaTv.setText(Integer.toString(prihodViewModel.getUkupnaKolicina() - rashodViewModel.getUkupnaKolicina()));
-
-
+        rashodViewModel.getSum().observe(getViewLifecycleOwner(), rashodSum -> {
+            rashodKolBool = true;
+            rashodKol = rashodSum;
+            if (prihodKolBool) {
+                if (prihodKol - rashodKol < 0) {
+                    razlikaTv.setTextColor(Color.RED);
+                } else {
+                    razlikaTv.setTextColor(Color.GREEN);
+                }
+                razlikaTv.setText(Integer.toString(prihodKol - rashodKol));
+            }
+        });
 
         prihodViewModel.getPrihodi().observe(getViewLifecycleOwner(), prihodi -> {
             int kolicinaPrihodi = 0;
             for (Prihod p : prihodi) {
                 kolicinaPrihodi += p.getKolicina();
             }
-            prihodKol = kolicinaPrihodi;
             prihodTv.setText(Integer.toString(kolicinaPrihodi));
-            prihodTv.setTextColor(Color.GREEN);;
+            prihodTv.setTextColor(Color.GREEN);
         });
+
         rashodViewModel.getRashodi().observe(getViewLifecycleOwner(), rashodi -> {
             int kolicinaRashodi = 0;
             for (Rashod r : rashodi) {
                 kolicinaRashodi += r.getKolicina();
             }
-            rashodKol = kolicinaRashodi;
             rashodTv.setText(Integer.toString(kolicinaRashodi));
             rashodTv.setTextColor(Color.RED);
         });
-
     }
+
 }
 

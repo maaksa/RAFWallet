@@ -4,12 +4,15 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.bumptech.glide.load.data.FileDescriptorAssetPathFetcher;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
+import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Rashod;
 
 public class RashodViewModel extends ViewModel {
@@ -18,8 +21,23 @@ public class RashodViewModel extends ViewModel {
     private final MutableLiveData<List<Rashod>> rashodi = new MutableLiveData<>();
     private final ArrayList<Rashod> rashodiList = new ArrayList<>();
 
+    private final MutableLiveData<Integer> sum = new MutableLiveData<>();
+
+    public LiveData<Integer> getSum() {
+        return sum;
+    }
+
+    public void setSum() {
+        int kolicina = 0;
+        for (Rashod rashod : rashodiList) {
+            kolicina += rashod.getKolicina();
+        }
+        this.sum.setValue(kolicina);
+    }
+
     public RashodViewModel() {
         createDummyData();
+        this.setSum();
         ArrayList<Rashod> listToSubmit = new ArrayList<>(rashodiList);
         rashodi.setValue(listToSubmit);
     }
@@ -81,6 +99,7 @@ public class RashodViewModel extends ViewModel {
         rashodiList.remove(rashod);
         ArrayList<Rashod> listToSubmit = new ArrayList<>(rashodiList);
         rashodi.setValue(listToSubmit);
+        this.setSum();
     }
 
     public int getUkupnaKolicina() {

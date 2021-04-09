@@ -18,8 +18,23 @@ public class PrihodViewModel extends ViewModel {
     private final MutableLiveData<List<Prihod>> prihodi = new MutableLiveData<>();
     private final ArrayList<Prihod> prihodiList = new ArrayList<>();
 
+    private final MutableLiveData<Integer> sum = new MutableLiveData<>();
+
+    public LiveData<Integer> getSum() {
+        return sum;
+    }
+
+    public void setSum() {
+        int kolicina = 0;
+        for (Prihod prihod : prihodiList) {
+            kolicina += prihod.getKolicina();
+        }
+        this.sum.setValue(kolicina);
+    }
+
     public PrihodViewModel() {
         createDummyData();
+        this.setSum();
         ArrayList<Prihod> listToSubmit = new ArrayList<>(prihodiList);
         prihodi.setValue(listToSubmit);
     }
@@ -42,6 +57,7 @@ public class PrihodViewModel extends ViewModel {
         prihodiList.add(prihod);
         ArrayList<Prihod> listToSubmit = new ArrayList<>(prihodiList);
         prihodi.setValue(listToSubmit);
+        this.setSum();
     }
 
     public void addPrihodAudio(String naslov, int kolicina, String opis, File file, UUID id) {
@@ -49,6 +65,7 @@ public class PrihodViewModel extends ViewModel {
         prihodiList.add(prihod);
         ArrayList<Prihod> listToSubmit = new ArrayList<>(prihodiList);
         prihodi.setValue(listToSubmit);
+        this.setSum();
     }
 
     public void updatePrihod(UUID id, String naslov, int kolicina, String opis) {
@@ -61,6 +78,7 @@ public class PrihodViewModel extends ViewModel {
         }
         ArrayList<Prihod> listToSubmit = new ArrayList<>(prihodiList);
         prihodi.setValue(listToSubmit);
+        this.setSum();
     }
 
     public void updatePrihodAudio(UUID id, String naslov, int kolicina, String opis, File file) {
@@ -74,12 +92,14 @@ public class PrihodViewModel extends ViewModel {
         }
         ArrayList<Prihod> listToSubmit = new ArrayList<>(prihodiList);
         prihodi.setValue(listToSubmit);
+        this.setSum();
     }
 
     public void deletePrihod(Prihod prihod) {
         prihodiList.remove(prihod);
         ArrayList<Prihod> listToSubmit = new ArrayList<>(prihodiList);
         prihodi.setValue(listToSubmit);
+        this.setSum();
     }
 
     public int getUkupnaKolicina() {
