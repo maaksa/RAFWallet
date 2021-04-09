@@ -40,13 +40,11 @@ public class PagerAdapterListe extends FragmentPagerAdapter {
         return fragment;
     }
 
-    //vraca koliko fragmenta imamo
     @Override
     public int getCount() {
         return ITEM_COUNT;
     }
 
-    //dinamicko dodavanje title za tabItem
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {

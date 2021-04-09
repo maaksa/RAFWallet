@@ -19,4 +19,22 @@
         <item name="android:windowBackground">@drawable/background</item>
     </style>
 
+    <style name="IzmenaProfilStyle" parent="Theme.RAFWallet">
+        <item name="android:layout_marginTop">36dp</item>
+        <item name="android:layout_marginStart">35dp</item>
+    </style>
+
+    <style name="LoginErrorMessage" parent="Theme.RAFWallet">
+        <item name="android:layout_marginStart">32dp</item>
+        <item name="android:textColor">#ef0225</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="PrikazFinansijeStyle" parent="Theme.RAFWallet">
+        <item name="android:layout_marginTop">36dp</item>
+        <item name="android:layout_marginStart">35dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
 </resources>

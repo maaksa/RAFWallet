@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                     nameErrorTv.setVisibility(View.INVISIBLE);
                     check = true;
                 } else {
-                    nameErrorTv.setText("Niste uneli ime");
+                    nameErrorTv.setText(R.string.niste_uneli_ime);
                     nameErrorTv.setVisibility(View.VISIBLE);
                     check = false;
                 }
@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                     surnameErrorTv.setVisibility(View.INVISIBLE);
                     check = true;
                 } else {
-                    surnameErrorTv.setText("Niste uneli prezime");
+                    surnameErrorTv.setText(R.string.niste_uneli_prezime);
                     surnameErrorTv.setVisibility(View.VISIBLE);
                     check = false;
                 }
@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.toString().length() < 5) {
-                    passwordErrorTv.setText("Sifra mora biti duza od 5 karaktera");
+                    passwordErrorTv.setText(R.string.sifra_veca_od_5_karaktera);
                     passwordErrorTv.setVisibility(View.VISIBLE);
                     check = false;
                 }
@@ -157,7 +157,7 @@ public class LoginActivity extends AppCompatActivity {
                     bankNameErrorTv.setVisibility(View.INVISIBLE);
                     check = true;
                 } else {
-                    bankNameErrorTv.setText("Niste uneli ime banke");
+                    bankNameErrorTv.setText(R.string.niste_uneli_banku);
                     bankNameErrorTv.setVisibility(View.VISIBLE);
                     check = false;
                 }
@@ -173,7 +173,7 @@ public class LoginActivity extends AppCompatActivity {
 
             getLoginFields();
             if (!password.equals(PASSWORD)) {
-                passwordErrorTv.setText("Pogresna sifra");
+                passwordErrorTv.setText(R.string.pogresna_sifra);
                 passwordErrorTv.setVisibility(View.VISIBLE);
                 check = false;
             }
@@ -200,32 +200,32 @@ public class LoginActivity extends AppCompatActivity {
 
         boolean toReturn = true;
         if (username.isEmpty()) {
-            nameErrorTv.setText("Niste uneli ime");
+            nameErrorTv.setText(R.string.niste_uneli_ime);
             nameErrorTv.setVisibility(View.VISIBLE);
             toReturn = false;
         }
         if (surname.isEmpty()) {
-            surnameErrorTv.setText("Niste uneli prezime");
+            surnameErrorTv.setText(R.string.niste_uneli_prezime);
             surnameErrorTv.setVisibility(View.VISIBLE);
             toReturn = false;
         }
         if (password.isEmpty()) {
-            passwordErrorTv.setText("Niste uneli sifru");
+            passwordErrorTv.setText(R.string.niste_uneli_sifru);
             passwordErrorTv.setVisibility(View.VISIBLE);
             toReturn = false;
         }
         if (bankName.isEmpty()) {
-            bankNameErrorTv.setText("Niste uneli ime banke");
+            bankNameErrorTv.setText(R.string.niste_uneli_banku);
             bankNameErrorTv.setVisibility(View.VISIBLE);
             toReturn = false;
         }
         if (password.length() < 5) {
-            passwordErrorTv.setText("Sifra mora biti duza od 5 karaktera");
+            passwordErrorTv.setText(R.string.sifra_veca_od_5_karaktera);
             passwordErrorTv.setVisibility(View.VISIBLE);
             toReturn = false;
         }
         if (!password.equals(PASSWORD)) {
-            passwordErrorTv.setText("Pogresna sifra");
+            passwordErrorTv.setText(R.string.pogresna_sifra);
             passwordErrorTv.setVisibility(View.VISIBLE);
             toReturn = false;
         }

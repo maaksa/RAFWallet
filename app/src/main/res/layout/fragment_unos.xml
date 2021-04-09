@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
-        android:text="Unos finansije"
+        android:text="@string/unos_finansije"
         android:textSize="20sp" />
 
     <Spinner
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="33dp"
-        android:hint="Naslov" />
+        android:hint="@string/naslov" />
 
     <EditText
         android:id="@+id/kolicinaUnosFragmentEt"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="33dp"
-        android:hint="Kolicina"
+        android:hint="@string/kolicina"
         android:inputType="number" />
 
     <CheckBox
@@ -54,7 +54,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/edit_text_border"
         android:gravity="top"
-        android:hint="Opis"
+        android:hint="@string/opis"
         android:inputType="text|textMultiLine"
         android:padding="10dp"
         android:visibility="visible" />
@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="70dp"
-        android:text="Dodaj u listu" />
+        android:text="@string/dodaj" />
 
 
 </LinearLayout>

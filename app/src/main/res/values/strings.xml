@@ -1,3 +1,39 @@
 <resources>
-    <string name="app_name">RAF Wallet</string>
+    <string name="app_name" translatable="false">RAF Wallet</string>
+    <string name="izmena_profila">Izmena profila</string>
+    <string name="ime">Ime:</string>
+    <string name="prezime">Prezime:</string>
+    <string name="banka">Banka:</string>
+    <string name="odustani">Odustani</string>
+    <string name="izmeni">Izmeni</string>
+    <string name="niste_uneli_ime">Niste uneli ime</string>
+    <string name="niste_uneli_prezime">Niste uneli prezime</string>
+    <string name="sifra_veca_od_5_karaktera">Sifra mora biti duza od 5 karaktera</string>
+    <string name="niste_uneli_banku">Niste uneli ime banke</string>
+    <string name="pogresna_sifra">Pogresna sifra</string>
+    <string name="sistem_za_finansije">Sistem za finansije</string>
+    <string name="unesite_ime">Unesite ime</string>
+    <string name="unesite_prezime">Unesite prezime</string>
+    <string name="unesite_ime_banke">Unesite ime banke</string>
+    <string name="unesite_sifru">Unesite sifru</string>
+    <string name="prijava">Prijava</string>
+    <string name="niste_uneli_sifru">Niste uneli sifru</string>
+    <string name="detalji_finansije">Detalji finansije</string>
+    <string name="naslov">Naslov:</string>
+    <string name="kolicina">Kolicina:</string>
+    <string name="_100">100RSD</string>
+    <string name="opis">Opis:</string>
+    <string name="izmena_finansije">Izmena finansije</string>
+    <string name="odjava">Odjava</string>
+    <string name="stanje_racuna">Stanje racuna</string>
+    <string name="prihod">Prihod:</string>
+    <string name="rashod">Rashod:</string>
+    <string name="razlika">Razlika:</string>
+    <string name="unos_finansije">Unos finansije</string>
+    <string name="dodaj">Dodaj</string>
+    <string name="podaci_o_korisniku">Podaci o korisniku</string>
+    <string name="profil">Profil</string>
+    <string name="liste">Liste</string>
+    <string name="unos">Unos</string>
+    <string name="stanje">Stanje</string>
 </resources>

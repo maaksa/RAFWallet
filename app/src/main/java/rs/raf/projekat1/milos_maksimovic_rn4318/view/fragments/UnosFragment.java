@@ -72,8 +72,8 @@ public class UnosFragment extends Fragment {
 
         spinner = view.findViewById(R.id.spinner);
         List<String> categories = new ArrayList<String>();
-        categories.add("Prihod");
-        categories.add("Rashod");
+        categories.add(String.valueOf(R.string.prihod));
+        categories.add(String.valueOf(R.string.rashod));
 
         ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.options_array, android.R.layout.simple_spinner_item);
         spinner.setAdapter(spinnerAdapter);

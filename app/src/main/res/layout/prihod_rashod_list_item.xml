@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/viewHolderShow"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/viewHolderShow"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:layout_margin="10dp"
-    android:background="@drawable/edit_text_border"
-    >
+    android:background="@drawable/edit_text_border">
 
     <ImageView
         android:id="@+id/dollarPictureIv"

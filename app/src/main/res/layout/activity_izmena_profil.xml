@@ -5,13 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="36dp"
-        android:text="Izmena podatak o korisniku"
+        android:text="@string/izmena_profila"
         android:textSize="20sp" />
 
     <ImageView
@@ -27,19 +26,17 @@
         android:orientation="horizontal">
 
         <TextView
+            style="@style/IzmenaProfilStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="36sp"
-            android:text="Ime:"
+            android:text="@string/ime"
             android:textSize="20sp" />
 
         <EditText
             android:id="@+id/imeIzmenaProfilActivity"
+            style="@style/IzmenaProfilStyle"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="36sp"
             android:layout_marginEnd="200dp"
             android:textSize="20sp" />
 
@@ -51,19 +48,17 @@
         android:orientation="horizontal">
 
         <TextView
+            style="@style/IzmenaProfilStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="36sp"
-            android:text="Prezime:"
+            android:text="@string/prezime"
             android:textSize="20sp" />
 
         <EditText
             android:id="@+id/prezimaIzmenaProfilActivity"
+            style="@style/IzmenaProfilStyle"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="36sp"
             android:layout_marginEnd="200dp"
             android:textSize="20sp" />
 
@@ -75,19 +70,17 @@
         android:orientation="horizontal">
 
         <TextView
+            style="@style/IzmenaProfilStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="36sp"
-            android:text="Banka:"
+            android:text="@string/banka"
             android:textSize="20sp" />
 
         <EditText
             android:id="@+id/bankaIzmenaProfilActivity"
+            style="@style/IzmenaProfilStyle"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="36sp"
             android:layout_marginEnd="200dp"
             android:textSize="20sp" />
 
@@ -100,20 +93,19 @@
 
         <Button
             android:id="@+id/odustaniBtnIzmaneProfilActivity"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|left"
-            android:layout_marginLeft="60dp"
-            android:text="Odustani" />
+            android:layout_marginLeft="50dp"
+            android:text="@string/odustani" />
 
         <Button
             android:id="@+id/izmeniBtnIzmaneProfilActivity"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
-            android:layout_marginStart="100dp"
-            android:text="Izmeni" />
-
+            android:layout_marginStart="60dp"
+            android:text="@string/izmeni" />
 
     </LinearLayout>
 

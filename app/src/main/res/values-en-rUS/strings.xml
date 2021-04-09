@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RAF Wallet</string>
+    <string name="izmena_profila">Edit profile</string>
+    <string name="ime">Name:</string>
+    <string name="prezime">Surname:</string>
+    <string name="banka">Bank:</string>
+    <string name="odustani">Cancle</string>
+    <string name="izmeni">Edit</string>
+    <string name="niste_uneli_ime">Please enter a name</string>
+    <string name="niste_uneli_prezime">Please enter a surname</string>
+    <string name="sifra_veca_od_5_karaktera">Password must be at least 5 characters long</string>
+    <string name="niste_uneli_banku">Please eneter a bank</string>
+    <string name="pogresna_sifra">Invalid password</string>
+    <string name="sistem_za_finansije">Financial system</string>
+    <string name="unesite_ime">Enter a name</string>
+    <string name="unesite_prezime">Enter a surname</string>
+    <string name="unesite_ime_banke">Enter a bank</string>
+    <string name="unesite_sifru">Enter a password</string>
+    <string name="prijava">Login</string>
+    <string name="niste_uneli_sifru">Please enter a password</string>
+    <string name="detalji_finansije">Finance details</string>
+    <string name="naslov">Title:</string>
+    <string name="kolicina">Amount:</string>
+    <string name="_100">100$</string>
+    <string name="opis">Description:</string>
+    <string name="izmena_finansije">Edit finance</string>
+    <string name="odjava">Sing out</string>
+    <string name="stanje_racuna">Account balance</string>
+    <string name="prihod">Income:</string>
+    <string name="rashod">Expense:</string>
+    <string name="razlika">Difference:</string>
+    <string name="unos_finansije">Add finance</string>
+    <string name="dodaj">Add</string>
+    <string name="podaci_o_korisniku">Account details</string>
+    <string name="profil">Profile</string>
+    <string name="liste">Lists</string>
+    <string name="unos">Add</string>
+    <string name="stanje">Info</string>
+</resources>

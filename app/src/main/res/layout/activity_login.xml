@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Novcanik sistem za \n    studente RAF-a"
+        android:text="@string/sistem_za_finansije"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/nameEtLogin"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,21 +34,19 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:hint="Unesite ime"
+        android:hint="@string/unesite_ime"
+        android:nextFocusDown="@id/surnameEtLogin"
+        android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@id/surnameEtLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleLogin"
-        android:singleLine="true"
-        android:nextFocusDown="@id/surnameEtLogin"/>
+        app:layout_constraintTop_toBottomOf="@id/titleLogin" />
 
     <TextView
         android:id="@+id/nameError"
+        style="@style/LoginErrorMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:textColor="#ef0225"
-        android:textSize="12sp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nameEtLogin" />
@@ -59,21 +57,19 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Unesite prezime"
+        android:hint="@string/unesite_prezime"
+        android:nextFocusDown="@id/bankNameEtLogin"
+        android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@id/bankNameEtLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nameEtLogin"
-        android:singleLine="true"
-        android:nextFocusDown="@id/bankNameEtLogin"/>
+        app:layout_constraintTop_toBottomOf="@id/nameEtLogin" />
 
     <TextView
         android:id="@+id/surnameError"
+        style="@style/LoginErrorMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:textColor="#ef0225"
-        android:textSize="12sp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/surnameEtLogin" />
@@ -84,21 +80,19 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Unesite ime banke"
+        android:hint="@string/unesite_ime_banke"
+        android:nextFocusDown="@id/passwordEtLogin"
+        android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@id/passwordEtLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/surnameEtLogin"
-        android:singleLine="true"
-        android:nextFocusDown="@id/passwordEtLogin"/>
+        app:layout_constraintTop_toBottomOf="@id/surnameEtLogin" />
 
     <TextView
         android:id="@+id/bankNameError"
+        style="@style/LoginErrorMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:textColor="#ef0225"
-        android:textSize="12sp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bankNameEtLogin" />
@@ -109,22 +103,20 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Unesite sifru"
+        android:hint="@string/unesite_sifru"
         android:inputType="textPassword"
+        android:nextFocusDown="@id/loginBtn"
+        android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@id/loginBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bankNameEtLogin"
-        android:singleLine="true"
-        android:nextFocusDown="@id/loginBtn"/>
+        app:layout_constraintTop_toBottomOf="@id/bankNameEtLogin" />
 
     <TextView
         android:id="@+id/passwordError"
+        style="@style/LoginErrorMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:textColor="#ef0225"
-        android:textSize="12sp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordEtLogin" />
@@ -135,11 +127,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="Prijava"
+        android:text="@string/prijava"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordEtLogin" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

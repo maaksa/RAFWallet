@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Rashod;
 
 public class RashodViewModel extends ViewModel {
