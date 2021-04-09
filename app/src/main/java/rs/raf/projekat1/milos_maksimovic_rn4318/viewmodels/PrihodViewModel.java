@@ -41,7 +41,7 @@ public class PrihodViewModel extends ViewModel {
 
     private void createDummyData() {
         Random random = new Random();
-        for (int i = 0; i <= 3; i++) {
+        for (int i = 0; i <= 6; i++) {
             int kolicina = random.nextInt((10 - 1) + 1) + 1;
             Prihod p = new Prihod(UUID.randomUUID(), "IT Firma " + i, kolicina * 100, "Opis " + i, null);
             prihodiList.add(p);

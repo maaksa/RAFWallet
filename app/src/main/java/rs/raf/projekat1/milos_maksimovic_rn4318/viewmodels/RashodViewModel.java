@@ -44,7 +44,7 @@ public class RashodViewModel extends ViewModel {
 
     private void createDummyData() {
         Random random = new Random();
-        for (int i = 0; i <= 3; i++) {
+        for (int i = 0; i <= 6; i++) {
             int kolicina = random.nextInt((10 - 1) + 1) + 1;
             Rashod r = new Rashod(UUID.randomUUID(), "IT Oprema " + i, kolicina * 100, "Opis " + i, null);
             rashodiList.add(r);
