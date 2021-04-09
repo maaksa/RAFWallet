@@ -45,8 +45,12 @@ public class IzmenaFinansijaFragment extends Fragment {
     public static final String FINANSIJA_PRIHOD_KEY = "finansijaPrihodKey";
     public static final String FINANSIJA_RASHOD_KEY = "finansijaRashodKey";
 
-    private final String SECOND_FRAGMENT_TAG = "secondFragment";
-    private final String FIRST_FRAGMENT_TAG = "firstFragment";
+    private final String IZMENA_PRIHOD_FRAGMENT_TAG = "izmenaPrihodFragment";
+    private final String PRIHOD_FRAGMENT_TAG = "prihodFragment";
+
+    private final String IZMENA_RASHOD_FRAGMENT_TAG = "izmenaRashodFragment";
+    private final String RASHOD_FRAGMENT_TAG = "rashodFragment";
+
 
     private Prihod prihod;
     private Rashod rashod;
@@ -102,12 +106,16 @@ public class IzmenaFinansijaFragment extends Fragment {
         chronometer = view.findViewById(R.id.chronometerIzmenaFinansijeFragment);
 
         this.prihod = (Prihod) getArguments().getSerializable(FINANSIJA_PRIHOD_KEY);
+
+        //ako je prosledjen prihod kroz fragment
         if (prihod != null) {
             naslovEt.setText(prihod.getNaslov());
             kolicinaEt.setText(Integer.toString(prihod.getKolicina()));
+            //ako je prosledjen prihod koji imao audio opis
             if (prihod.getAudioZapis() != null) {
                 opisEt.setVisibility(View.GONE);
                 audioIv.setVisibility(View.VISIBLE);
+                //ako je korisnik uklonio permisije proveravamo
                 if (hasPermissions(getActivity(), PERMISSIONS)) {
                     opisEt.setVisibility(View.GONE);
                     audioIv.setVisibility(View.VISIBLE);
@@ -119,13 +127,16 @@ public class IzmenaFinansijaFragment extends Fragment {
                 opisEt.setText(prihod.getOpis());
                 audioIv.setVisibility(View.GONE);
             }
+            //ako je prosledjen rashod kroz fragment
         } else {
-            this.prihod = (Prihod) getArguments().getSerializable(FINANSIJA_RASHOD_KEY);
+            this.rashod = (Rashod) getArguments().getSerializable(FINANSIJA_RASHOD_KEY);
             naslovEt.setText(rashod.getNaslov());
             kolicinaEt.setText(Integer.toString(rashod.getKolicina()));
+            //ako je prosledjen rashod koji imao audio opis
             if (rashod.getAudioZapis() != null) {
                 opisEt.setVisibility(View.GONE);
                 audioIv.setVisibility(View.VISIBLE);
+                //ako je korisnik uklonio permisije proveravamo
                 if (hasPermissions(getActivity(), PERMISSIONS)) {
                     opisEt.setVisibility(View.GONE);
                     audioIv.setVisibility(View.VISIBLE);
@@ -191,20 +202,33 @@ public class IzmenaFinansijaFragment extends Fragment {
         odustaniBtn.setOnClickListener(v -> {
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
-            PrihodFragment prihodFragment = (PrihodFragment) getActivity().getSupportFragmentManager().findFragmentByTag(SECOND_FRAGMENT_TAG);
-            if (prihodFragment != null && prihodFragment.isVisible()) {
-                transaction.replace(R.id.izmenaFinansijaFragment, new IzmenaFinansijaFragment(), FIRST_FRAGMENT_TAG);
-            } else {
-                transaction.replace(R.id.izmenaFinansijaFragment, new PrihodFragment(), SECOND_FRAGMENT_TAG);
+            //da se vratimo na RV prihod
+            if (prihod != null) {
+                PrihodFragment prihodFragment = (PrihodFragment) getActivity().getSupportFragmentManager().findFragmentByTag(IZMENA_PRIHOD_FRAGMENT_TAG);
+                if (prihodFragment != null && prihodFragment.isVisible()) {
+                    transaction.replace(R.id.izmenaFinansijaFragment, new IzmenaFinansijaFragment(), PRIHOD_FRAGMENT_TAG);
+                } else {
+                    transaction.replace(R.id.izmenaFinansijaFragment, new PrihodFragment(), IZMENA_PRIHOD_FRAGMENT_TAG);
+                }
+                transaction.commit();
+            } else { //da se vratimo RV rashod
+                RashodFragment rashodFragment = (RashodFragment) getActivity().getSupportFragmentManager().findFragmentByTag(IZMENA_RASHOD_FRAGMENT_TAG);
+                if (rashodFragment != null && rashodFragment.isVisible()) {
+                    transaction.replace(R.id.izmenaFinansijaRashodFragment, new IzmenaFinansijaFragment(), RASHOD_FRAGMENT_TAG);
+                } else {
+                    transaction.replace(R.id.izmenaFinansijaRashodFragment, new RashodFragment(), IZMENA_RASHOD_FRAGMENT_TAG);
+                }
+                transaction.commit();
             }
-            transaction.commit();
         });
 
         izmeniBtn.setOnClickListener(v -> {
+            //ako smo dosli sa prihod fragmenta
             if (prihod != null) {
                 String naslov = naslovEt.getText().toString();
                 String opis = opisEt.getText().toString();
 
+                //ako je prihod sa audio zapisom
                 if (prihod.getAudioZapis() != null) {
                     if (naslov.isEmpty() || kolicinaEt.getText().toString().isEmpty()) {
                         Toast.makeText(getActivity(), "Sva polja morate popuniti", Toast.LENGTH_SHORT).show();
@@ -222,20 +246,60 @@ public class IzmenaFinansijaFragment extends Fragment {
                 } else {
                     if (naslov.isEmpty() || opis.isEmpty() || kolicinaEt.getText().toString().isEmpty()) {
                         Toast.makeText(getActivity(), "Popunite sva polja", Toast.LENGTH_SHORT).show();
+                        return;
                     } else {
                         prihodViewModel.updatePrihod(prihod.getId(), naslov, Integer.parseInt(kolicinaEt.getText().toString()), opis);
                     }
                 }
-            }
-            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
-            PrihodFragment prihodFragment = (PrihodFragment) getActivity().getSupportFragmentManager().findFragmentByTag(SECOND_FRAGMENT_TAG);
-            if (prihodFragment != null && prihodFragment.isVisible()) {
-                transaction.replace(R.id.izmenaFinansijaFragment, new IzmenaFinansijaFragment(), FIRST_FRAGMENT_TAG);
-            } else {
-                transaction.replace(R.id.izmenaFinansijaFragment, new PrihodFragment(), SECOND_FRAGMENT_TAG);
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+
+                PrihodFragment prihodFragment = (PrihodFragment) getActivity().getSupportFragmentManager().findFragmentByTag(IZMENA_PRIHOD_FRAGMENT_TAG);
+                if (prihodFragment != null && prihodFragment.isVisible()) {
+                    transaction.replace(R.id.izmenaFinansijaFragment, new IzmenaFinansijaFragment(), PRIHOD_FRAGMENT_TAG);
+                } else {
+                    transaction.replace(R.id.izmenaFinansijaFragment, new PrihodFragment(), IZMENA_PRIHOD_FRAGMENT_TAG);
+                }
+                transaction.commit();
+            }//ako smo dosli sa rashod fragmenta
+            else {
+                String naslov = naslovEt.getText().toString();
+                String opis = opisEt.getText().toString();
+
+                //ako je rashod sa audio zapisom
+                if (rashod.getAudioZapis() != null) {
+                    if (naslov.isEmpty() || kolicinaEt.getText().toString().isEmpty()) {
+                        Toast.makeText(getActivity(), "Sva polja morate popuniti", Toast.LENGTH_SHORT).show();
+                        return;
+                    } else {
+                        //ako nije napravljena izmena na audio uzimamo stari audio
+                        if (fileToSave == null) {
+                            fileToSave = rashod.getAudioZapis();
+                        }
+                        int kolicina = Integer.parseInt(kolicinaEt.getText().toString());
+                        rashodViewModel.updateRashodAudio(rashod.getId(), naslov, kolicina, null, fileToSave);
+                        kolicinaEt.setText("");
+                        naslovEt.setText("");
+                    }
+                } else {
+                    if (naslov.isEmpty() || opis.isEmpty() || kolicinaEt.getText().toString().isEmpty()) {
+                        Toast.makeText(getActivity(), "Popunite sva polja", Toast.LENGTH_SHORT).show();
+                        return;
+                    } else {
+                        rashodViewModel.updateRashod(rashod.getId(), naslov, Integer.parseInt(kolicinaEt.getText().toString()), opis);
+                    }
+                }
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+
+                RashodFragment rashodFragment = (RashodFragment) getActivity().getSupportFragmentManager().findFragmentByTag(IZMENA_RASHOD_FRAGMENT_TAG);
+                if (rashodFragment != null && rashodFragment.isVisible()) {
+                    transaction.replace(R.id.izmenaFinansijaRashodFragment, new IzmenaFinansijaFragment(), RASHOD_FRAGMENT_TAG);
+                } else {
+                    transaction.replace(R.id.izmenaFinansijaRashodFragment, new RashodFragment(), IZMENA_RASHOD_FRAGMENT_TAG);
+                }
+                transaction.commit();
             }
-            transaction.commit();
         });
     }
 

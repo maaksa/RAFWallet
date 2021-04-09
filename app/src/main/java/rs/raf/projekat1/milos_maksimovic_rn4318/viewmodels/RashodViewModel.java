@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
+import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Rashod;
 
 public class RashodViewModel extends ViewModel {
@@ -48,6 +49,31 @@ public class RashodViewModel extends ViewModel {
     public void addRashodAudio(String naslov, int kolicina, String opis, File file, UUID id) {
         Rashod rashod = new Rashod(id, naslov, kolicina, opis, file);
         rashodiList.add(rashod);
+        ArrayList<Rashod> listToSubmit = new ArrayList<>(rashodiList);
+        rashodi.setValue(listToSubmit);
+    }
+
+    public void updateRashod(UUID id, String naslov, int kolicina, String opis) {
+        for (Rashod r : rashodiList) {
+            if (r.getId() == id) {
+                r.setKolicina(kolicina);
+                r.setNaslov(naslov);
+                r.setOpis(opis);
+            }
+        }
+        ArrayList<Rashod> listToSubmit = new ArrayList<>(rashodiList);
+        rashodi.setValue(listToSubmit);
+    }
+
+    public void updateRashodAudio(UUID id, String naslov, int kolicina, String opis, File file) {
+        for (Rashod r : rashodiList) {
+            if (r.getId() == id) {
+                r.setKolicina(kolicina);
+                r.setNaslov(naslov);
+                r.setOpis(opis);
+                r.setAudioZapis(file);
+            }
+        }
         ArrayList<Rashod> listToSubmit = new ArrayList<>(rashodiList);
         rashodi.setValue(listToSubmit);
     }

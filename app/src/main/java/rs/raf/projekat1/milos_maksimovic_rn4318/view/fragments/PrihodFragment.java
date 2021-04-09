@@ -26,8 +26,7 @@ public class PrihodFragment extends Fragment {
     private RecyclerView recyclerView;
     private Prihod prihodToSend;
 
-    private final String SECOND_FRAGMENT_TAG = "secondFragment";
-    private final String FIRST_FRAGMENT_TAG = "firstFragment";
+    private final String PRIHOD_FRAGMENT_TAG = "prihodFragment";
 
     public PrihodFragment() {
         super(R.layout.fragment_prihodi);
@@ -70,7 +69,8 @@ public class PrihodFragment extends Fragment {
                     args.putSerializable(IzmenaFinansijaFragment.FINANSIJA_PRIHOD_KEY, prihodToSend);
                     izf.setArguments(args);
 
-                    transaction.replace(R.id.izmenaFinansijaFragment, izf, FIRST_FRAGMENT_TAG);
+                    //zamenjujemo rv fragment prihod sa edit finansija fragment
+                    transaction.replace(R.id.izmenaFinansijaFragment, izf, PRIHOD_FRAGMENT_TAG);
                     transaction.commit();
 
                     break;

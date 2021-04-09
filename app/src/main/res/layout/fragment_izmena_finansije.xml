@@ -61,7 +61,8 @@
             android:layout_marginTop="36sp"
             android:layout_marginEnd="200dp"
             android:hint="100$"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:inputType="number"/>
 
     </LinearLayout>
 

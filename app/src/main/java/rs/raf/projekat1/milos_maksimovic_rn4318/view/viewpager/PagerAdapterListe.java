@@ -11,6 +11,7 @@ import rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments.PrihodFragment;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments.PrihodIzmenaFragment;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments.ProfilFragment;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments.RashodFragment;
+import rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments.RashodIzmenaFragment;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments.StanjeFragment;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments.UnosFragment;
 
@@ -33,7 +34,7 @@ public class PagerAdapterListe extends FragmentPagerAdapter {
                 fragment = new PrihodIzmenaFragment();
                 break;
             default:
-                fragment = new RashodFragment();
+                fragment = new RashodIzmenaFragment();
                 break;
         }
         return fragment;
