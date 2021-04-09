@@ -39,7 +39,6 @@ public class ListeFragment extends Fragment {
     }
 
     private void initTabs() {
-        //moramo kreirati PagerAdapter
         viewPager.setAdapter(new PagerAdapterListe(getActivity().getSupportFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
     }

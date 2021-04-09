@@ -17,7 +17,6 @@ import java.util.function.Function;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Action;
-import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Rashod;
 
 public class RashodAdapter extends ListAdapter<Rashod, RashodAdapter.ViewHolder> {

@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import rs.raf.projekat1.milos_maksimovic_rn4318.R;
 
 public class SplashActivity extends AppCompatActivity {
 

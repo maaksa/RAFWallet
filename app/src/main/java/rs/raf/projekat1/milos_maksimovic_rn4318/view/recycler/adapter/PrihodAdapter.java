@@ -2,7 +2,6 @@ package rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,20 +9,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeoutException;
+
 import java.util.function.Function;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Action;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
-import timber.log.Timber;
 
 public class PrihodAdapter extends ListAdapter<Prihod, PrihodAdapter.ViewHolder> {
 

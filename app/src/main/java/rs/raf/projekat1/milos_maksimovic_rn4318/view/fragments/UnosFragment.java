@@ -98,13 +98,11 @@ public class UnosFragment extends Fragment {
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
-            //svaki put kad selektujemo neku od staviki iz drop down liste ucice u ovu metodu
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 
             }
 
-            //ukoliko nista nismo selektovali poziva se ova metoda
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
 
@@ -201,6 +199,8 @@ public class UnosFragment extends Fragment {
             if (checkBoxAudio.isChecked()) {
                 if (naslov.isEmpty() || kolicinaEt.getText().toString().isEmpty()) {
                     Toast.makeText(getActivity(), "Sva polja morate popuniti", Toast.LENGTH_SHORT).show();
+                } else if (fileToSave == null) {
+                    Toast.makeText(getActivity(), "Niste uneli audio opis", Toast.LENGTH_SHORT).show();
                 } else {
                     int kolicina = Integer.parseInt(kolicinaEt.getText().toString());
                     if (option.equals("Prihod")) {

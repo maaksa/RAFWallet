@@ -14,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RAFWallet">
         <activity android:name=".view.activities.PrikazFinansijeActivity"></activity>
-        <activity android:name=".view.activities.IzmenaFinansijeActivity" />
         <activity android:name=".view.activities.IzmenaProfilActivity" />
         <activity android:name=".view.activities.MainActivity" />
         <activity android:name=".view.activities.LoginActivity" />

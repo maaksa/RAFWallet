@@ -6,7 +6,6 @@ import java.util.UUID;
 
 public class Prihod implements Serializable {
 
-    //private int id;
     private UUID id;
     private String naslov;
     private int kolicina;
@@ -20,14 +19,6 @@ public class Prihod implements Serializable {
     public void setAudioZapis(File audioZapis) {
         this.audioZapis = audioZapis;
     }
-
-//    public Prihod(UUID id, String naslov, int kolicina, String opis) {
-//        this.id = id;
-//        this.naslov = naslov;
-//        this.kolicina = kolicina;
-//        this.opis = opis;
-//        this.audioZapis = audioZapis;
-//    }
 
     public Prihod(UUID id, String naslov, int kolicina, String opis, File audioZapis) {
         this.id = id;
@@ -69,12 +60,4 @@ public class Prihod implements Serializable {
         this.kolicina = kolicina;
     }
 
-    @Override
-    public String toString() {
-        return "Prihod{" +
-                "id=" + id +
-                ", naslov='" + naslov + '\'' +
-                ", kolicina=" + kolicina +
-                '}';
-    }
 }

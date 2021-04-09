@@ -12,15 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
-import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Rashod;
-import rs.raf.projekat1.milos_maksimovic_rn4318.view.activities.IzmenaFinansijeActivity;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.activities.PrikazFinansijeActivity;
-import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.adapter.PrihodAdapter;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.adapter.RashodAdapter;
-import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.differ.PrihodDiffItemCallback;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.differ.RashodDiffItemCallback;
-import rs.raf.projekat1.milos_maksimovic_rn4318.viewmodels.PrihodViewModel;
 import rs.raf.projekat1.milos_maksimovic_rn4318.viewmodels.RashodViewModel;
 
 public class RashodFragment extends Fragment {
@@ -62,21 +57,21 @@ public class RashodFragment extends Fragment {
             rashodToSend = rashod;
             return null;
         }, action -> {
-            switch (action) {
-                case EDIT:
-                    Intent intent = new Intent(getActivity(), IzmenaFinansijeActivity.class);
-                    intent.putExtra(IzmenaFinansijeActivity.FINANSIJA_RASHOD_KEY, rashodToSend);
-                    startActivity(intent);
-                    break;
-                case SHOW:
-                    Intent intent2 = new Intent(getActivity(), PrikazFinansijeActivity.class);
-                    intent2.putExtra(IzmenaFinansijeActivity.FINANSIJA_RASHOD_KEY, rashodToSend);
-                    startActivity(intent2);
-                    break;
-                case DELETE:
-                    rashodViewModel.deleteRashod(rashodToSend);
-                    break;
-            }
+//            switch (action) {
+//                case EDIT:
+//                    Intent intent = new Intent(getActivity(), IzmenaFinansijeActivity.class);
+//                    intent.putExtra(IzmenaFinansijeActivity.FINANSIJA_RASHOD_KEY, rashodToSend);
+//                    startActivity(intent);
+//                    break;
+//                case SHOW:
+//                    Intent intent2 = new Intent(getActivity(), PrikazFinansijeActivity.class);
+//                    intent2.putExtra(IzmenaFinansijeActivity.FINANSIJA_RASHOD_KEY, rashodToSend);
+//                    startActivity(intent2);
+//                    break;
+//                case DELETE:
+//                    rashodViewModel.deleteRashod(rashodToSend);
+//                    break;
+//            }
             return null;
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

@@ -7,13 +7,13 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
-import rs.raf.projekat1.milos_maksimovic_rn4318.view.activities.IzmenaFinansijeActivity;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.activities.PrikazFinansijeActivity;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.adapter.PrihodAdapter;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.recycler.differ.PrihodDiffItemCallback;
@@ -25,6 +25,9 @@ public class PrihodFragment extends Fragment {
     private PrihodAdapter prihodAdapter;
     private RecyclerView recyclerView;
     private Prihod prihodToSend;
+
+    private final String SECOND_FRAGMENT_TAG = "secondFragment";
+    private final String FIRST_FRAGMENT_TAG = "firstFragment";
 
     public PrihodFragment() {
         super(R.layout.fragment_prihodi);
@@ -60,13 +63,20 @@ public class PrihodFragment extends Fragment {
         }, action -> {
             switch (action) {
                 case EDIT:
-                    Intent intent = new Intent(getActivity(), IzmenaFinansijeActivity.class);
-                    intent.putExtra(IzmenaFinansijeActivity.FINANSIJA_PRIHOD_KEY, prihodToSend);
-                    startActivity(intent);
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+
+                    IzmenaFinansijaFragment izf = new IzmenaFinansijaFragment();
+                    Bundle args = new Bundle();
+                    args.putSerializable(IzmenaFinansijaFragment.FINANSIJA_PRIHOD_KEY, prihodToSend);
+                    izf.setArguments(args);
+
+                    transaction.replace(R.id.izmenaFinansijaFragment, izf, FIRST_FRAGMENT_TAG);
+                    transaction.commit();
+
                     break;
                 case SHOW:
                     Intent intent2 = new Intent(getActivity(), PrikazFinansijeActivity.class);
-                    intent2.putExtra(IzmenaFinansijeActivity.FINANSIJA_PRIHOD_KEY, prihodToSend);
+                    intent2.putExtra(PrikazFinansijeActivity.FINANSIJA_PRIHOD_KEY, prihodToSend);
                     startActivity(intent2);
                     break;
                 case DELETE:

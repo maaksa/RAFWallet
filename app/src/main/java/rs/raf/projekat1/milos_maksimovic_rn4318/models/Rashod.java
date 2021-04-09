@@ -60,12 +60,4 @@ public class Rashod implements Serializable {
         this.kolicina = kolicina;
     }
 
-    @Override
-    public String toString() {
-        return "Rashod{" +
-                "id=" + id +
-                ", naslov='" + naslov + '\'' +
-                ", kolicina=" + kolicina +
-                '}';
-    }
 }

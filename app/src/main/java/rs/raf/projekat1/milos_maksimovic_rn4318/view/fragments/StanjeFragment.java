@@ -1,30 +1,21 @@
 package rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.RandomAccess;
-import java.util.concurrent.TimeoutException;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Rashod;
 import rs.raf.projekat1.milos_maksimovic_rn4318.viewmodels.PrihodViewModel;
 import rs.raf.projekat1.milos_maksimovic_rn4318.viewmodels.RashodViewModel;
-import timber.log.Timber;
 
 public class StanjeFragment extends Fragment {
 

@@ -316,8 +316,6 @@ public class PrikazFinansijeActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        // Proverite sta se desava sa zvukom kada sklonite komentar i izadjete iz aplikacije sa home button
-        //pause();
     }
 
     @Override

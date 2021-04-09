@@ -4,11 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -55,9 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private void initNavigation() {
         ((BottomNavigationView) findViewById(R.id.bottomNavigation)).setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                // setCurrentItem metoda viewPager samo obavesti koji je Item trenutno aktivan i onda metoda getItem u adapteru setuje odredjeni fragment za tu poziciju
                 case R.id.navigation_stanje:
-                    //na ovaj nacin ce nas customViewPager da prikazuje odredjene fragmente
                     viewPager.setCurrentItem(PagerAdapter.FRAGMENT_STANJE, false);
                     break;
                 case R.id.navigation_unos:

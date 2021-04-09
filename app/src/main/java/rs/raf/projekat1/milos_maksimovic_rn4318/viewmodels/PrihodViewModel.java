@@ -11,11 +11,9 @@ import java.util.Random;
 import java.util.UUID;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.models.Prihod;
-import rs.raf.projekat1.milos_maksimovic_rn4318.models.Rashod;
 
 public class PrihodViewModel extends ViewModel {
 
-    //public static int counter = 4;
 
     private final MutableLiveData<List<Prihod>> prihodi = new MutableLiveData<>();
     private final ArrayList<Prihod> prihodiList = new ArrayList<>();
@@ -59,6 +57,19 @@ public class PrihodViewModel extends ViewModel {
                 p.setKolicina(kolicina);
                 p.setNaslov(naslov);
                 p.setOpis(opis);
+            }
+        }
+        ArrayList<Prihod> listToSubmit = new ArrayList<>(prihodiList);
+        prihodi.setValue(listToSubmit);
+    }
+
+    public void updatePrihodAudio(UUID id, String naslov, int kolicina, String opis, File file) {
+        for (Prihod p : prihodiList) {
+            if (p.getId() == id) {
+                p.setKolicina(kolicina);
+                p.setNaslov(naslov);
+                p.setOpis(opis);
+                p.setAudioZapis(file);
             }
         }
         ArrayList<Prihod> listToSubmit = new ArrayList<>(prihodiList);

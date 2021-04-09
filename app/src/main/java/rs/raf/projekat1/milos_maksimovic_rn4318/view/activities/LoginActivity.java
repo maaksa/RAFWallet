@@ -6,14 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.strictmode.WebViewMethodCalledOnWrongThreadViolation;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.R;
 
@@ -181,8 +179,6 @@ public class LoginActivity extends AppCompatActivity {
             }
             checkLoginFields();
             if (check) {
-                //restartErrors();
-                //user = new User(username, password);
                 SharedPreferences sharedPreferences = getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
                 sharedPreferences
                         .edit()

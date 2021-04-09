@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments.ListeFragment;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments.PrihodFragment;
+import rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments.PrihodIzmenaFragment;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments.ProfilFragment;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments.RashodFragment;
 import rs.raf.projekat1.milos_maksimovic_rn4318.view.fragments.StanjeFragment;
@@ -29,7 +30,7 @@ public class PagerAdapterListe extends FragmentPagerAdapter {
         Fragment fragment;
         switch (position) {
             case FRAGMENT_PRIHOD:
-                fragment = new PrihodFragment();
+                fragment = new PrihodIzmenaFragment();
                 break;
             default:
                 fragment = new RashodFragment();
